@@ -19,25 +19,6 @@ export default function Contact() {
   const { getValue, loading, content } = useContent();
   const { settings } = useSiteSettings();
 
-  // Prevent flash of fallback text while CMS content loads
-  if (loading && content.length === 0) return <PageLoader />;
-
-  const contactHeading = getValue('contact', 'contact_heading', 'We Await Your');
-  const contactSubheading = getValue('contact', 'contact_subheading', 'Prepare your pilgrimage plans beautifully. Our reservation crew is available 24/7 to orchestrate your luxury stay and pure Sattvik dining requirements.');
-
-  const locationText = getValue('contact', 'contact_map_pin', settings.address || 'Village Dewar, Guptkashi, Kedarnath Route, Uttarakhand 246439').replace('246495', '246439');
-  const contactEmailText = getValue('contact', 'contact_email', settings.email || 'vedichimalayaretreat@gmail.com');
-
-  const contactHeroVisible = getValue('contact', 'contact_hero_visible', 'true') !== 'false';
-  const contactBadge = getValue('contact', 'contact_badge', 'REACH OUT TO US');
-  const contactItalicText = getValue('contact', 'contact_italic_text', 'Sacred Arrival');
-  const contactInstagram = getValue('contact', 'contact_instagram', '@thevedichimalayaretreat');
-  const contactInstagramUrl = getValue('contact', 'contact_instagram_url', 'https://instagram.com/thevedichimalayaretreat');
-  const contactFormVisible = getValue('contact', 'contact_form_visible', 'true') !== 'false';
-  const contactFormTitle = getValue('contact', 'contact_form_title', 'Send an Inquiry');
-
-  const whatsappNumber = settings.whatsapp_number || "918126573560";
-
   const contactFaqs = useMemo(() => {
     try {
       const val = JSON.parse(getValue('contact', 'contact_faqs', '[]'));
@@ -81,6 +62,25 @@ export default function Contact() {
   const visibleFaqs = useMemo(() => {
     return contactFaqs.filter((faq: any) => faq.is_visible !== false);
   }, [contactFaqs]);
+
+  // Prevent flash of fallback text while CMS content loads
+  if (loading && content.length === 0) return <PageLoader />;
+
+  const contactHeading = getValue('contact', 'contact_heading', 'We Await Your');
+  const contactSubheading = getValue('contact', 'contact_subheading', 'Prepare your pilgrimage plans beautifully. Our reservation crew is available 24/7 to orchestrate your luxury stay and pure Sattvik dining requirements.');
+
+  const locationText = getValue('contact', 'contact_map_pin', settings.address || 'Village Dewar, Guptkashi, Kedarnath Route, Uttarakhand 246439').replace('246495', '246439');
+  const contactEmailText = getValue('contact', 'contact_email', settings.email || 'vedichimalayaretreat@gmail.com');
+
+  const contactHeroVisible = getValue('contact', 'contact_hero_visible', 'true') !== 'false';
+  const contactBadge = getValue('contact', 'contact_badge', 'REACH OUT TO US');
+  const contactItalicText = getValue('contact', 'contact_italic_text', 'Sacred Arrival');
+  const contactInstagram = getValue('contact', 'contact_instagram', '@thevedichimalayaretreat');
+  const contactInstagramUrl = getValue('contact', 'contact_instagram_url', 'https://instagram.com/thevedichimalayaretreat');
+  const contactFormVisible = getValue('contact', 'contact_form_visible', 'true') !== 'false';
+  const contactFormTitle = getValue('contact', 'contact_form_title', 'Send an Inquiry');
+
+  const whatsappNumber = settings.whatsapp_number || "918126573560";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

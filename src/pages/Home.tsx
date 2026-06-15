@@ -221,7 +221,7 @@ function OfferingCard({ offer, idx, total, scrollYProgress, isMobile, readyToLoa
       <div className="flex-1 md:w-1/2 p-1 sm:p-2 bg-white/10 md:bg-white/5 rounded-[1.3rem] sm:rounded-[1.8rem] border border-white/10 overflow-hidden relative group h-36 xs:h-44 sm:h-52 md:h-auto min-h-[140px] md:min-h-0">
         <div className="w-full h-full rounded-[1rem] sm:rounded-[1.3rem] overflow-hidden relative">
           <img 
-            src={readyToLoad ? offer.image : ""} 
+            src={readyToLoad ? offer.image : undefined} 
             alt={offer.title} 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
@@ -444,6 +444,7 @@ export default function Home() {
 
   const y1 = useTransform(heroScroll, [0, 1], ["0%", "50%"]);
   const opacity1 = useTransform(heroScroll, [0, 0.8], [1, 0]);
+  const yText = useTransform(heroScroll, [0, 1], [0, 100]);
 
   // Premium easing curve
   const easePremium = [0.22, 1, 0.36, 1] as const;
@@ -925,7 +926,7 @@ export default function Home() {
           <motion.div 
             style={{ 
               opacity: isMobile ? 1 : opacity1,
-              y: isMobile ? 0 : useTransform(heroScroll, [0, 1], [0, 100]),
+              y: isMobile ? 0 : yText,
               willChange: isMobile ? "auto" : "transform, opacity",
               WebkitBackfaceVisibility: "hidden",
               backfaceVisibility: "hidden"
@@ -1215,7 +1216,7 @@ export default function Home() {
                     <div className="flex-1 p-1 bg-white/10 rounded-[1.1rem] border border-white/10 overflow-hidden relative w-full">
                       <div className="w-full h-full rounded-[0.8rem] overflow-hidden relative">
                         <img 
-                          src={loadRemaining ? offer.image : ""} 
+                          src={loadRemaining ? offer.image : undefined} 
                           alt={offer.title} 
                           className="absolute inset-0 w-full h-full object-cover"
                           loading="lazy"

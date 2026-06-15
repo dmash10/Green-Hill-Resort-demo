@@ -121,7 +121,7 @@ export default function BentoGallery({
                 
                 {/* High Quality Image with secondary zoom on hover */}
                 <img 
-                  src={readyToLoad ? item.image : ""} 
+                  src={readyToLoad ? item.image : undefined} 
                   alt={item.title} 
                   loading="lazy"
                   onLoad={() => setLoadedMap(prev => ({ ...prev, [imgKey]: true }))}
