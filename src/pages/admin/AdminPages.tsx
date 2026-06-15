@@ -2442,15 +2442,15 @@ export default function AdminPages() {
                     )}
 
                     <SectionToggle
-                      label="Taste of Garhwal Menu Section"
+                      label="Restaurant A la Carte & Garhwali Menu Section"
                       checked={visibilities.dining_garhwali_visible}
                       onChange={(v) => setVisibilities((prev: any) => ({ ...prev, dining_garhwali_visible: v }))}
-                      description="Toggle the main unified regional Garhwali cuisine and public dining menu"
+                      description="Toggle the main unified A la Carte restaurant and Garhwali regional dining menu"
                     />
                     {visibilities.dining_garhwali_visible && (
                       <div className="space-y-4">
                         <div className="p-4 bg-white/5 rounded-xl border border-[#1C2E2A] space-y-4">
-                          <div className="text-xs font-bold text-[#C4A665] uppercase tracking-wider mb-2">Taste of Garhwal Menu Headings</div>
+                          <div className="text-xs font-bold text-[#C4A665] uppercase tracking-wider mb-2">Restaurant A la Carte & Garhwali Menu Headings</div>
                           <TextInputGroup label="Menu Tagline" icon={Type} value={formFields.dining_menu_tagline} onChange={(v) => setFormFields((prev: any) => ({ ...prev, dining_menu_tagline: v }))} />
                           <div className="grid grid-cols-2 gap-4">
                             <TextInputGroup label="Menu Heading 1" icon={Type} value={formFields.dining_menu_heading1} onChange={(v) => setFormFields((prev: any) => ({ ...prev, dining_menu_heading1: v }))} />
