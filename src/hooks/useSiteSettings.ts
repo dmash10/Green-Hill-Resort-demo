@@ -22,6 +22,8 @@ export interface SiteSettings {
   share_description?: string;
   share_image?: string;
   site_favicon?: string;
+  instagram_url?: string;
+  youtube_url?: string;
 }
 
 const defaultSettings: SiteSettings = {
@@ -31,7 +33,7 @@ const defaultSettings: SiteSettings = {
   secondary_phone: '+91 63981 41605',
   tertiary_phone: '',
   whatsapp_number: '918126573560',
-  email: 'stay@vedichimalaya.com',
+  email: 'vedichimalayaretreat@gmail.com',
   address: 'Village Dewar, Guptkashi, Kedarnath Route',
   google_maps_url: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.8142090316883!2d79.0675857!3d30.528566199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3908373ec7f69455%3A0x6cfb243add26a3!2sThe%20Vedic%20Himalaya%20Retreat!5e1!3m2!1sen!2sin!4v1780983587789!5m2!1sen!2sin',
   whatsapp_default_message: 'Hi, I want to book a room at The Vedic Himalaya Retreat',
@@ -44,6 +46,8 @@ const defaultSettings: SiteSettings = {
   share_description: '',
   share_image: '',
   site_favicon: '',
+  instagram_url: 'https://www.instagram.com/the_vedic_himalaya/',
+  youtube_url: 'https://www.youtube.com/',
 };
 
 export const useSiteSettings = () => {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { Leaf, Flame, Wind, Sparkles, Utensils, Coffee, ChevronRight, Check, ChevronLeft } from "lucide-react";
 import { useContent } from "@/hooks/useContent";
@@ -7,6 +7,29 @@ import PageLoader from "@/components/PageLoader";
 import { DynamicIcon } from "@/components/ui/DynamicIcon";
 
 export default function Dining() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+    setIsMobile(mql.matches);
+    
+    try {
+      mql.addEventListener("change", onChange);
+    } catch (err) {
+      mql.addListener(onChange);
+    }
+    
+    return () => {
+      try {
+        mql.removeEventListener("change", onChange);
+      } catch (err) {
+        mql.removeListener(onChange);
+      }
+    };
+  }, []);
+
   const easePremium = [0.22, 1, 0.36, 1] as const;
   const { getValue, loading, content } = useContent();
   const { menuItems } = useMenu();
@@ -441,7 +464,7 @@ export default function Dining() {
       {diningHeroVisible && (
         <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
           <motion.div 
-            style={{ y: y1 }}
+            style={{ y: isMobile ? "0%" : y1 }}
             className="absolute inset-0 w-full h-full bg-[#1A2621]"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#2E3438] via-black/15 to-[#2E3438]/40 z-10" />
@@ -456,7 +479,7 @@ export default function Dining() {
           </motion.div>
           
           <motion.div 
-            style={{ opacity: opacity1 }}
+            style={{ opacity: isMobile ? 1 : opacity1 }}
             className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 pt-20"
           >
             <motion.h1 

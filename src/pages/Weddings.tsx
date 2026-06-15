@@ -505,7 +505,7 @@ export default function Weddings() {
       {heroVisible && (
         <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
           <motion.div 
-            style={{ y: y1 }}
+            style={{ y: isMobile ? "0%" : y1 }}
             className="absolute inset-0 w-full h-full bg-[#1E2229]"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#1E2229] via-black/15 to-[#1E2229]/40 z-10" />
@@ -520,7 +520,7 @@ export default function Weddings() {
           </motion.div>
           
           <motion.div 
-            style={{ opacity: opacity1 }}
+            style={{ opacity: isMobile ? 1 : opacity1 }}
             className="relative z-20 h-full flex flex-col items-center justify-center text-center px-6 pt-20"
           >
             <motion.h1 

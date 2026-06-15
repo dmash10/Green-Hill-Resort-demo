@@ -48,7 +48,7 @@ export function Navbar() {
   const isTransparentPage = ["/", "/weddings", "/dining", "/experiences", "/nearby"].includes(location.pathname);
   // Maintain beautiful warm white / mist text for premium visual contrast against dark backgrounds
   const textColor = "text-warm-white";
-  const overlayBg = isScrolled || !isTransparentPage ? "bg-[#10231E]/95 backdrop-blur-md border-b border-[#D8CBB8]/15 shadow-xl" : "bg-transparent";
+  const overlayBg = isScrolled || !isTransparentPage ? "bg-[#10231E]/95 backdrop-blur-none md:backdrop-blur-md border-b border-[#D8CBB8]/15 shadow-xl" : "bg-transparent";
   const buttonVariant = "outline";
 
   const easePremium = [0.22, 1, 0.36, 1] as const;

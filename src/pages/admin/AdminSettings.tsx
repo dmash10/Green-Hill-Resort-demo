@@ -3,7 +3,7 @@ import { useSiteSettings, SiteSettings } from '@/hooks/useSiteSettings';
 import {
   Save, Phone, Globe, MessageSquare, Bell,
   Loader2, ShieldCheck, AlertTriangle, MapPin, Mail, Tag,
-  Share2
+  Share2, Instagram, Youtube
 } from 'lucide-react';
 import { toast } from 'sonner';
 import ImageUploader from '@/components/admin/ImageUploader';
@@ -222,8 +222,32 @@ export default function AdminSettings() {
               type="email"
               value={localSettings.email}
               onChange={(val) => handleChange('email', val)}
-              placeholder="stay@vedichimalaya.com"
+              placeholder="vedichimalayaretreat@gmail.com"
               required
+            />
+          </div>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="bg-[#0D1412] border border-[#1C2E2A] rounded-2xl overflow-hidden shadow-none">
+          <h2 className="text-xs font-bold text-[#F8FAFC] p-4 bg-[#0D1412]/50 border-b border-[#1C2E2A] flex items-center gap-2 uppercase tracking-wider">
+            <Share2 className="h-4.5 w-4.5 text-[#C4A665]" />
+            Social Media Links
+          </h2>
+          <div className="p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <SettingInput
+              label="Instagram URL"
+              icon={Instagram}
+              value={localSettings.instagram_url || ''}
+              onChange={(val) => handleChange('instagram_url', val)}
+              placeholder="https://www.instagram.com/yourprofile"
+            />
+            <SettingInput
+              label="YouTube URL"
+              icon={Youtube}
+              value={localSettings.youtube_url || ''}
+              onChange={(val) => handleChange('youtube_url', val)}
+              placeholder="https://www.youtube.com/c/yourchannel"
             />
           </div>
         </div>

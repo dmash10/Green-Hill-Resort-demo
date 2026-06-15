@@ -33,10 +33,10 @@ const PAGES_LIST = [
 
 // Fallback Default Content Catalogs (Syncs Frontend Default Assets to CMS when DB is unpopulated)
 const DEFAULT_HOME_POLAROIDS = [
-  { title: "Double Pine Suite", desc: "ELEVATED ALPINE LIVING", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800", is_visible: true },
-  { title: "Cozy Comforts", desc: "COZY HEARTH COMPANIONSHIP", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600", is_visible: true },
-  { title: "Chaukhamba Peak", desc: "MISTY GOLDEN RANGE VISTAS", image: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&q=80&w=800", is_visible: true },
-  { title: "Hearthside Breads", desc: "ORGANIC FRESH BREADS", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600", is_visible: true }
+  { title: "Your Room", desc: "WOODEN CABINS IN THE FOREST", image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800", is_visible: true },
+  { title: "Furry Friends", desc: "PETS ARE WELCOME HERE", image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600", is_visible: true },
+  { title: "The View Outside", desc: "SNOW PEAKS FROM YOUR WINDOW", image: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&q=80&w=800", is_visible: true },
+  { title: "Morning Bread", desc: "BAKED FRESH EVERY DAY", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600", is_visible: true }
 ];
 
 const DEFAULT_HOME_OFFERINGS = [
@@ -1365,7 +1365,7 @@ export default function AdminPages() {
         contact_heading: getValue('contact', 'contact_heading', 'Reach Out'),
         contact_subheading: getValue('contact', 'contact_subheading', 'Reservations & coordinates'),
         contact_image: getValue('contact', 'contact_image', ''),
-        contact_email: getValue('contact', 'contact_email', 'stay@vedichimalayaretreat.com'),
+        contact_email: getValue('contact', 'contact_email', 'vedichimalayaretreat@gmail.com'),
         contact_map_pin: getValue('contact', 'contact_map_pin', 'Village Dewar, Guptkashi, Kedarnath Route, Uttarakhand 246439').replace('246495', '246439'),
         contact_badge: getValue('contact', 'contact_badge', 'REACH OUT TO US'),
         contact_italic_text: getValue('contact', 'contact_italic_text', 'Sacred Arrival'),

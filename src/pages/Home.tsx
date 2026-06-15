@@ -500,6 +500,7 @@ export default function Home() {
 
   // Centralized cross-page background preloading queue (runs slowly in background after Bento starts loading)
   useEffect(() => {
+    if (isMobile) return; // Skip background image preloading on mobile to save bandwidth and prevent thread choking
     if (loadBento) {
       const roomCardImg = rooms[0]?.card_image_url || "https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&q=80&w=1200";
       const diningHeroImg = getValue('dining', 'dining_image', '');
@@ -683,10 +684,10 @@ export default function Home() {
   }
   if (homePolaroids.length === 0) {
     homePolaroids = [
-      { id: 0, image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800", title: "Double Pine Suite", desc: "ELEVATED ALPINE LIVING", is_visible: true },
-      { id: 1, image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600", title: "Cozy Comforts", desc: "COZY HEARTH COMPANIONSHIP", is_visible: true },
-      { id: 2, image: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&q=80&w=800", title: "Chaukhamba Peak", desc: "MISTY GOLDEN RANGE VISTAS", is_visible: true },
-      { id: 3, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600", title: "Hearthside Breads", desc: "ORGANIC FRESH BREADS", is_visible: true }
+      { id: 0, image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=800", title: "Your Room", desc: "WOODEN CABINS IN THE FOREST", is_visible: true },
+      { id: 1, image: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600", title: "Furry Friends", desc: "PETS ARE WELCOME HERE", is_visible: true },
+      { id: 2, image: "https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8?auto=format&fit=crop&q=80&w=800", title: "The View Outside", desc: "SNOW PEAKS FROM YOUR WINDOW", is_visible: true },
+      { id: 3, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600", title: "Morning Bread", desc: "BAKED FRESH EVERY DAY", is_visible: true }
     ];
   }
   const visiblePolaroids = homePolaroids.filter(item => item.is_visible !== false);
@@ -881,8 +882,8 @@ export default function Home() {
         <section ref={heroRef} className="relative h-screen w-full overflow-hidden">
           <motion.div 
             style={{ 
-              y: y1,
-              willChange: "transform",
+              y: isMobile ? "0%" : y1,
+              willChange: isMobile ? "auto" : "transform",
               WebkitBackfaceVisibility: "hidden",
               backfaceVisibility: "hidden",
               transformStyle: "flat"
@@ -923,9 +924,9 @@ export default function Home() {
           
           <motion.div 
             style={{ 
-              opacity: opacity1,
-              y: useTransform(heroScroll, [0, 1], [0, 100]),
-              willChange: "transform, opacity",
+              opacity: isMobile ? 1 : opacity1,
+              y: isMobile ? 0 : useTransform(heroScroll, [0, 1], [0, 100]),
+              willChange: isMobile ? "auto" : "transform, opacity",
               WebkitBackfaceVisibility: "hidden",
               backfaceVisibility: "hidden"
             }}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Instagram, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 export function Footer() {
@@ -11,7 +11,7 @@ export function Footer() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#8A98A6]/30 to-transparent" />
 
       <div className="container mx-auto px-6 lg:px-8 max-w-7xl relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 sm:gap-8 pb-12 mb-12 border-b border-[#D8CBB8]/15">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-10 gap-x-6 sm:gap-8 pb-12 mb-12 border-b border-[#D8CBB8]/15">
           
           {/* Column 1: Editorial Branding */}
           <div className="space-y-4 col-span-2 lg:col-span-1">
@@ -55,7 +55,7 @@ export function Footer() {
           </div>
 
           {/* Column 4: Contact Information */}
-          <div className="space-y-4 col-span-2 lg:col-span-1 pt-4 sm:pt-0 border-t border-[#D8CBB8]/10 sm:border-0">
+          <div className="space-y-4 col-span-2 sm:col-span-1 pt-4 sm:pt-0 border-t border-[#D8CBB8]/10 sm:border-0">
             <h4 className="font-heading uppercase tracking-[0.18em] text-xs text-[#D8CBB8] font-semibold">
               Get in Touch
             </h4>
@@ -118,18 +118,37 @@ export function Footer() {
                   <span className="text-xs tracking-wide font-mono truncate lowercase">{settings.email}</span>
                 </a>
               )}
-              
-              {/* Instagram */}
-              <a 
-                href="https://www.instagram.com/the_vedic_himalaya/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="Instagram Profile" 
-                className="flex items-center gap-3 text-[#F6F4EF]/80 hover:text-[#A88C52] transition-colors duration-300 group"
-              >
-                <Instagram size={14} className="shrink-0 text-[#8A98A6] group-hover:text-[#A88C52] transition-colors" />
-                <span className="text-xs tracking-widest font-mono uppercase font-bold">@the_vedic_himalaya</span>
-              </a>
+            </div>
+          </div>
+
+          {/* Column 5: Social Media */}
+          <div className="space-y-4 col-span-2 sm:col-span-1 pt-4 sm:pt-0 border-t border-[#D8CBB8]/10 sm:border-0">
+            <h4 className="font-heading uppercase tracking-[0.18em] text-xs text-[#D8CBB8] font-semibold">
+              Follow Us
+            </h4>
+            <div className="flex gap-3.5">
+              {settings.instagram_url && (
+                <a 
+                  href={settings.instagram_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F6F4EF]/80 hover:bg-white/10 hover:text-[#A88C52] hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm group cursor-pointer"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} className="group-hover:rotate-6 transition-transform" />
+                </a>
+              )}
+              {settings.youtube_url && (
+                <a 
+                  href={settings.youtube_url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F6F4EF]/80 hover:bg-white/10 hover:text-[#A88C52] hover:scale-105 active:scale-95 transition-all duration-300 shadow-sm group cursor-pointer"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={20} className="group-hover:rotate-6 transition-transform" />
+                </a>
+              )}
             </div>
           </div>
 

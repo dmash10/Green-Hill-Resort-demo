@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
                   Regardless of your place of residence, the retreat accords you absolute sovereignty over your digital footprint. You have the right to request access to the personal records we hold, request corrections to incomplete information, withdraw your consent for email updates, or request total erasure of your personal files from our servers.
                 </p>
                 <p>
-                  For all data requests, digital disclosures, or queries regarding immigration reporting, please coordinate with our privacy team at: <span className="italic font-semibold text-[#1B4C44] underline hover:text-[#A88C52] transition-colors">stay@vedichimalaya.com</span>. We pledge to address and satisfy all lawful requests within 30 business days.
+                  For all data requests, digital disclosures, or queries regarding immigration reporting, please coordinate with our privacy team at: <span className="italic font-semibold text-[#1B4C44] underline hover:text-[#A88C52] transition-colors">vedichimalayaretreat@gmail.com</span>. We pledge to address and satisfy all lawful requests within 30 business days.
                 </p>
               </section>
 
